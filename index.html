@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- 최신 버전 (예: 32.2.1 이상) -->
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@32.2.1/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@32.2.1/styles/ag-theme-alpine.css"> -->
+<link rel="stylesheet" href="./node_modules/ag-grid-community/styles/ag-grid.css">
+<link rel="stylesheet" href="./node_modules/ag-grid-community/styles/ag-theme-alpine.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+/>
+
+
 </head>
 <body>
-    
+    <input type="text" id="quickFilterInput" placeholder="검색어를 입력하세요">
+    <button id="clearFilterBtn">초기화</button>
+
+    <div id="myGrid" class="ag-theme-alpine" style="height: 100%"></div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/ag-grid-community@32.2.1/dist/ag-grid-community.min.noStyle.js"></script> -->
+    <script src="./node_modules/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <script src="/src/index.js" type="module"></script>
 </body>
 </html>
