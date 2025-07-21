@@ -1,5 +1,9 @@
 // ag grid react : https://front-kuli.tistory.com/257
 import { CustomInnerHeader } from './CustomInnerHeader.js';
+// https://www.ag-grid.com/javascript-data-grid/localisation/
+// https://github.com/ag-grid/ag-grid/blob/latest/community-modules/locale/src/ko-KR.ts
+
+import { AG_GRID_LOCALE_KR } from './AG_GRID_LOCALE_KR..js'; 
 
 let selectedMake;
 
@@ -15,7 +19,35 @@ window.addEventListener('DOMContentLoaded', () => {
          headerComponentParams:{
             icon: "fa-user",
          },
-         enableSorting: true,
+         /*
+         enableSorting	gridOptions에 사용됨	전체 그리드에서 정렬 기능을 켤지 말지	전역 설정
+         sortable	columnDefs의 각 컬럼에서 사용됨	특정 컬럼의 정렬 허용 여부	컬럼 개별 설정
+
+         둘 다 쓸 수 있음 (하지만 우선순위 있음)
+         ✅ 우선순위: enableSorting → sortable
+         const gridOptions = {
+           enableSorting: false,
+           columnDefs: [
+             { field: "name", sortable: true }  // ⚠️ 이 설정은 무시됨
+           ]
+         };
+         🤔 그럼 왜 둘 다 존재할까?
+         1. 유연성
+         enableSorting으로 기본값 지정하고
+        
+         columnDefs.sortable로 예외만 설정 가능
+        
+         2. 프로그래밍적 제어
+         예: 사용자의 권한에 따라 전체 정렬 막기 (enableSorting: false)
+        
+         또는 특정 컬럼만 제한하기 (sortable: false)
+        
+         3. 프레임워크 호환성
+         React, Angular에서 gridOptions과 columnDefs를 별도로 관리하는 경우
+         전역 설정은 전역, 컬럼 설정은 로컬로 명확히 구분됨
+
+         */
+         enableSorting: true, // 여기가 아니라 gridOptions에 설정해야함. sortable : true와 같은 역할. 모든 열에 sortable 추가
        },
       { 
         headerName: '제조', // headerName : 제목, 따로 설정하지 않을 시 filed 명으로 자동 세팅 된다.
@@ -90,6 +122,7 @@ window.addEventListener('DOMContentLoaded', () => {
    ];
 
    const gridOptions = {
+      localeText: AG_GRID_LOCALE_KR,
       // column 세팅
       columnDefs: columnDefs,
       // 기본 컬럼 세팅 (해당 프로퍼티로 개별 세팅된 값이 없을 경우 이 값으로 설정됨)
@@ -111,9 +144,9 @@ window.addEventListener('DOMContentLoaded', () => {
          },
 
          resizable: true, // header의 사이즈 조절이 가능하게 됨.
-         sortable: true, // 정렬 기능. 머리글을 클릭하면 오름차순, 내림차순, 기본으로 정렬됨. 
+         //sortable: true, // 정렬 기능. 머리글을 클릭하면 오름차순, 내림차순, 기본으로 정렬됨. 
 
-         suppressStickyLabel: true,
+         //suppressStickyLabel: true,
       },
       // 열 속성 집함을 정의할 수 있음. columnDefs에서 type에 속성명을 stirng 혹은 [string] 로 추가하면 열에 적용됨.
       // 열 유형은 열에만 적용되고 열 그룹에는 적용되지 않음.
@@ -143,9 +176,9 @@ window.addEventListener('DOMContentLoaded', () => {
       domLayout: 'autoHeight',
 
       // 페이징 사용
-      //  pagination: true,
-      //  paginationPageSize: 8,
-      //  paginationPageSizeSelector: [8, 25, 100],
+       pagination: true,
+       paginationPageSize: 8,
+       paginationPageSizeSelector: [8, 25, 100],
       
 
       // 바인딩된 데이터가 없을 경우 loading 오버레이 띄울지 여부
