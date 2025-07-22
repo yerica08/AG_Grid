@@ -48,6 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
          */
          enableSorting: true, // 여기가 아니라 gridOptions에 설정해야함. sortable : true와 같은 역할. 모든 열에 sortable 추가
+         
        },
       { 
         headerName: '제조', // headerName : 제목, 따로 설정하지 않을 시 filed 명으로 자동 세팅 된다.
@@ -61,8 +62,8 @@ window.addEventListener('DOMContentLoaded', () => {
         editable: true, // 컬럼값을 수정할 수 있는지 여부. 기본값 false
         suppressMovable: true, // 컬럼 이동 막기.(주위의 컬럼을 이동시켜서 변경되는건 가능) 모든 컬럼을 막고 싶다면 'defaultColDef' 옵션에서 ture 설정.
         pinned: "left", // 필드 선언순서를 무시하고 해당 방향으로 고정
-        width: 120, // 넓이 지정
-        cellStyle: { cursor: 'pointer' },
+        width: 120, // 넓이 지정,
+        cellStyle: { cursor: 'pointer', color: 'pink' },
         cellClass: "currency-cell",
         // hide: true // 컬럼 숨김처리
         /*
@@ -129,7 +130,7 @@ window.addEventListener('DOMContentLoaded', () => {
       defaultColDef: {
          filter: 'agTextColumnFilter', // 필터에 사용될 컨트롤 지정
          floatingFilter: true, // 필터링 컨트롤 표시 여부(input[type="text"] 표시 여부)
-         headerClass: 'text-center', // 헤더에 클레스 부여
+         //headerClass: 'text-center', // 헤더에 클레스 부여
 
          // onCellClicked : 셀을 클릭했을 때 호출되는 함수. 매개변수로 cell 안의 데이터 정보들이 담겨있음.
          onCellClicked: (e) => {
