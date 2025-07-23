@@ -107,7 +107,7 @@ window.addEventListener('DOMContentLoaded', () => {
       { make: 'Toyota', model: {A: 'Corolla', B: 'other'}, price: 29600, electric: false },
       { make: 'Mercedes', A: 'EQA', B: 'AAA', price: 48890, electric: true },
       { make: 'Fiat', A: '500', B: '600', price: 15774, electric: false },
-      { make: 'Nissan', A: 'Juke', B: 'none', price: 20675, electric: false },
+      { id: "testId", make: 'Nissan', A: 'Juke', B: 'none', price: 20675, electric: false },
       { make: 'Tesla', A: 'Model Y', B: 'model K', price: 64950, electric: true },
       { make: 'Ford', A: 'F-Series', B: 'B-Series', price: 33850, electric: false },
       { make: 'Toyota', A: 'Corolla', B: 'other', price: 29600, electric: false },
